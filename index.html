@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Index Page</title>
+    <script src="script.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Call to Action Well -->
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+        <div class="card-body">
+            <p class="text-white m-0">This is the playing grounds for the second lab!</p>
+        </div>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+        <!-- /.col-md-4 TASK ONE -->
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Task One</h2>
+                    <p class="card-text">Below this text there should be a picture of a random dog.</p>
+
+                    <div id="dog">
+                        <img src="dog-silhuette.png">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary btn-sm" id="btnDog">Generate dog</a>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-md-4 TASK TWO -->
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Task Two</h2>
+                    <p class="card-text">The button should generate a random user profile.</p>
+                <div id="person">
+                    <img src="person-unknown.png" width="100%">
+                    </div>
+                    <div id="name">
+                    <h5 >Name Namesson</h5>
+                </div>
+                    <div class="d-flex">
+                        <div id="countryName">
+                            <p>Country</p>
+                        </div>
+                        <div class="ml-auto" id="flag">
+                            <img src="flag-unknown.png" width="20%">
+                        </div>
+                    </div>
+                    <h5>Alien avatar</h5>
+                    <div id="idimg">
+                    <img src="person-unknown.png"  width="80%">
+                </div>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary btn-sm " id="btnProfile">Generate profile</a>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-md-4 TASK THREE -->
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Task Three</h2>
+                    <form id="budget-form" name="form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="form-control" id="nameTrip" aria-describedby="nameHelp"
+                                   placeholder="Enter name" onblur="blurFunction()" onfocus="focusFunction()"  onkeyup="myFunction()" required minlength="3">
+                            <small id="nameHelp" class="input-help form-text text-danger"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Destination Country</label>
+                            <select type="text" name="country" class="form-control" id="country"
+                                    aria-describedby="countryHelp" onblur="blurCountry()" onfocus="focusCountry()" onchange="myFunction2()" required>
+                                <option value="no-country" id="non">No countries loaded</option>
+                            </select>
+                            <small id="countryHelp" class="input-help form-text text-danger"></small>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <label for="expenses">Expenses </label>
+                                <input type="number" name="expenses" class="form-control" id="expenses"
+                                       aria-describedby="nameHelp" placeholder="Enter expenses" onblur="blurExpenses()"
+                                        onfocus="focusExpenses()" onchange="onChangeFunction()"onkeyup="myFunction()" required min="0">
+                                <small id="expensesHelp" class="input-help form-text text-danger" ></small>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="currency">Currency</label>
+                                <input type="text" name="currency" class="form-control" id="currency"
+                                       aria-describedby="nameHelp" placeholder="Enter currency" onblur="blurCurrency()" 
+                                        onfocus="focusCurrency()" onchange="onChangeFunction()" onkeyup="myFunction()" required>
+                                <small id="currencyHelp" class="input-help form-text text-danger"></small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Budget</label>
+                            <input type="number" name="budget" class="form-control" id="budget" aria-describedby="budgetHelp"
+                                   placeholder="Enter budget" onblur="blurBudget()" onfocus="focusBudget()" onchange="onChangeFunction()" onkeyup="myFunction()" required>
+                            <small id="budgetHelp" class="input-help form-text text-danger"></small>
+                        </div>
+                        <button type="submit"  class="btn btn-primary" id="btnSubmit" disabled onclick="buttonFunction()">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+</body>
+
+</html>
